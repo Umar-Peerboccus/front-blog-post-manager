@@ -1,10 +1,9 @@
 import { FormEvent, useState } from "react";
-
 import { UpdatePostFormProps } from "../models/props/UpdatePostFormProps";
 import { useLocation } from "react-router-dom";
 import { Post } from "../models/Post";
 
-export default function UpdatePostForm({ onSubmit } : UpdatePostFormProps ) {
+export default function ModifyPostForm({ onSubmit } : UpdatePostFormProps ) {
 
     const location = useLocation();
     const { post } = location.state as { post: Post };
@@ -33,7 +32,7 @@ export default function UpdatePostForm({ onSubmit } : UpdatePostFormProps ) {
 
     return (
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
-          <h2 className="text-xl font-semibold mb-4">Update a Post</h2>
+          <h2 className="text-xl font-semibold mb-4">Modify a Post</h2>
           <input
             type="text"
             placeholder="Title"

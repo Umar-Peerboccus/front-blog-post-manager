@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import UpdatePostForm from "../components/UpdatePostForm";
+import ModifyPostForm from "../components/ModifyPostForm";
 import { updatePost } from "../services/PostService";
 import { UpdatePostModel } from "../models/UpdatePostModel";
 
-export default function UpdatePost() {
+export default function ModifyPost() {
     const navigate = useNavigate();
         
     const handleSubmit = async (data : UpdatePostModel) => {
@@ -16,7 +16,7 @@ export default function UpdatePost() {
     return (
         <div className="py-8 px-4">
             <h1 className="text-3xl font-bold mb-6 text-center">Update A Blog Post</h1>
-            <UpdatePostForm onSubmit={handleSubmit}/>
+            <ModifyPostForm onSubmit={handleSubmit}/>
         </div>
     );
 }
