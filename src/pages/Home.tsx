@@ -18,7 +18,7 @@ export default function Home() {
 
     return (
         <div className="py-8 px-4">
-          <h1 className="text-3xl font-bold mb-6">Blog Posts Manager</h1>
+          <h1 className="text-3xl font-bold mb-6 text-center">Blog Posts Manager</h1>
           <PostList posts = {posts} />
         </div>
     );
