@@ -1,7 +1,7 @@
 import { Post } from "../models/Post";
 import axios from "axios";
-import { CreatePostFormProps } from "../models/props/CreatePostFormProps";
 import { CreatePostModel } from "../models/CreatePostModel";
+import { UpdatePostModel } from "../models/UpdatePostModel";
 
 export const getAllPosts  = async () => {
   try {
@@ -21,6 +21,25 @@ export const createPost =  async (postData : CreatePostModel) => {
   }
   catch (error) {
     console.error("Failed to create a post:", error);
+    throw error;
+  }
+}
+
+export const updatePost = async (postData: UpdatePostModel) => {
+  try {
+      const updatePostModelDTO = {
+          title: postData.title,
+          content: postData.content,
+          author: postData.author,
+          createdAt: postData.createdAt,
+          isPublished: postData.isPublished,
+          isDeleted: postData.isDeleted
+      }
+      
+      await axios.put(`http://localhost:5000/api/blog/${postData.id}`, updatePostModelDTO)
+  }
+  catch (error) {
+    console.error("Failed to update a post:", error);
     throw error;
   }
 }

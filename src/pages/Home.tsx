@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PostList from "../components/PostList";
 import { Post } from "../models/Post";
-import { getAllPosts } from '../services/PostsService';
+import { getAllPosts } from '../services/PostService';
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
