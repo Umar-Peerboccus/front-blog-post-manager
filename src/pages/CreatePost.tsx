@@ -1,10 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import PostForm from "../components/PostForm";
 import { CreatePostModel } from "../models/CreatePostModel";
 import { createPost } from "../services/PostsService";
 
 export default function CreatePost() {
+  const navigate = useNavigate();
+  
     const handleSubmit = async (data : CreatePostModel) => {
         await createPost(data);
+
+        // Go back to homepage after creation.
+        navigate("/");
     };
     
     return (
