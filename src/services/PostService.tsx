@@ -43,4 +43,14 @@ export const updatePost = async (postData: UpdatePostModel) => {
     throw error;
   }
 }
+
+export const deletePost = async (id: number) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/blog/${id}`);
+  }
+  catch (error) {
+    console.error("Failed to update a post:", error);
+    throw error;
+  }
+}
   

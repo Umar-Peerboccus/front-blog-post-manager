@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ModifyPostForm from "../components/ModifyPostForm";
-import { updatePost } from "../services/PostService";
+import { updatePost, deletePost } from "../services/PostService";
 import { UpdatePostModel } from "../models/UpdatePostModel";
 
 export default function ModifyPost() {
@@ -13,10 +13,17 @@ export default function ModifyPost() {
         navigate("/");
     };
 
+    const handleDelete = async (id : number) => {
+        await deletePost(id);
+
+        // // Go back to homepage after updating.
+        navigate("/");
+    };
+
     return (
         <div className="py-8 px-4">
-            <h1 className="text-3xl font-bold mb-6 text-center">Update A Blog Post</h1>
-            <ModifyPostForm onSubmit={handleSubmit}/>
+            <h1 className="text-3xl font-bold mb-6 text-center">Modify Blog Post</h1>
+            <ModifyPostForm onSubmit={handleSubmit} onDelete={handleDelete} />
         </div>
     );
 }

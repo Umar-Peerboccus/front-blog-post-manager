@@ -8,7 +8,7 @@ export default function PostList({ posts } : PostListProps) {
             { posts.map((post) => (
                 // eslint-disable-next-line no-template-curly-in-string
                 <Link to = {`/${post.id}`} state={{ post }}>
-                    <PostCard post = {post} />
+                    <PostCard key={post.id} post = {post} />
                 </Link>
             ))}
         </div>
