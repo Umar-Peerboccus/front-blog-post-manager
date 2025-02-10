@@ -7,10 +7,10 @@ export default function DisplayNotification({ notificationDetail, handleCloseNot
         <>
             <Snackbar
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                open={notificationDetail.open}
+                open={notificationDetail?.open}
                 autoHideDuration={5000}
                 onClose={handleCloseNotification}
-                message={notificationDetail.message}
+                message={notificationDetail?.message}
             />
         </>
     )

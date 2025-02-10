@@ -2,6 +2,6 @@ import { NotificationDetail } from "../NotificationDetail";
 
 export interface DisplayNotificationProps
 {
-    notificationDetail : NotificationDetail;
+    notificationDetail : NotificationDetail | undefined;
     handleCloseNotification: () => void;
 }
