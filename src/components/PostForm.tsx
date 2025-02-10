@@ -6,6 +6,8 @@ export default function PostForm({ onSubmit } : CreatePostFormProps) {
     const [title, setTitle] = useState<string>("");
     const [content, setContent] = useState<string>("");
     const [author, setAuthor] = useState<string>("");
+
+    const isDisabled = title.trim() === "" || content.trim() === "" || author.trim() === "";
     
     const handleSubmit = (e : FormEvent) => {
         e.preventDefault();
@@ -46,7 +48,12 @@ export default function PostForm({ onSubmit } : CreatePostFormProps) {
             onChange={(e) => setAuthor(e.target.value)}
             className="w-full p-2 mb-4 border rounded"
           />
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+          <button 
+          type="submit"
+          disabled={isDisabled}
+          className={`w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 
+                    ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"}`}
+          >
             Save
           </button>
         </form>
